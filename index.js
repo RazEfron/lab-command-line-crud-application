@@ -13,6 +13,7 @@ const {
 const inform = console.log;
 
 const userInput = process.argv[2];
+console.log(process.argv);
 
 function run() {
   switch (userInput) {
@@ -25,10 +26,16 @@ function run() {
       inform(purchase);
       break;
     case "create":
+      const purchasesWithNewPurchase = create(purchases, process.argv.slice(3));
+      inform(purchasesWithNewPurchase);
       break;
     case "update":
+      const updatedPurchases = update(purchases, process.argv.slice(3));
+      inform(updatedPurchases);
       break;
     case "delete":
+      const destroyedPurchases = destroy(purchases, process.argv[3]);
+      inform(destroyedPurchases);
       break;
   }
 }
